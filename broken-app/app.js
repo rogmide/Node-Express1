@@ -1,16 +1,21 @@
-const express = require('express');
-let axios = require('axios');
-var app = express();
+const express = require("express");
+let axios = require("axios");
+let app = express();
 
-app.post('/', function(req, res, next) {
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.post("/", async function (req, res, next) {
   try {
-    let results = req.body.developers.map(async d => {
+    let results = req.body.developers.map(async (d) => {
       return await axios.get(`https://api.github.com/users/${d}`);
     });
-    let out = results.map(r => ({ name: r.data.name, bio: r.data.bio }));
+
+    let data = await axios.all(results);
+    let out = data.map((r) => ({ name: r.data.name, bio: r.data.bio }));
 
     return res.send(JSON.stringify(out));
-  } catch {
+  } catch (err) {
     next(err);
   }
 });
