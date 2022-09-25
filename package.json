@@ -1,0 +1,23 @@
+{
+  "name": "node-express1",
+  "version": "1.0.0",
+  "description": "## Springboard Assessment: Node/Express 1",
+  "main": "urls.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rogmide/Node-Express1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rogmide/Node-Express1/issues"
+  },
+  "homepage": "https://github.com/rogmide/Node-Express1#readme",
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
+}
